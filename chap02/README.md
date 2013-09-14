@@ -1,18 +1,20 @@
-1. Start and Stop the Erlang Shell
-Start: `erl`
-Stop: `Ctrl + C, a, <enter>`
+# Exercises
 
-1. Type in a few commands in the shell
-`123 * 456.`
-`X = 123. X * 456.`
+1. Start and Stop the Erlang Shell  
+Start: `erl`  
+Stop: `Ctrl + C, a, <enter>`  
 
-1. Compile and run `hello.erl` in Erlang Shell
-`c(hello).`
-`hello:start().`
+1. Type in a few commands in the shell  
+`123 * 456.`  
+`X = 123. X * 456.`  
 
-1. Run the file client and server code
-**Note**: See modified `afile_server`, `afile_client` code
-Man page: [http://www.erlang.org/doc/man/file.html#write_file-2](http://www.erlang.org/doc/man/file.html#write_file-2)
+1. Compile and run `hello.erl` in Erlang Shell  
+`c(hello).`  
+`hello:start().`  
+
+1. Run the file client and server code  
+**Note**: See modified `afile_server`, `afile_client` code  
+Man page: [http://www.erlang.org/doc/man/file.html#write_file-2](http://www.erlang.org/doc/man/file.html#write_file-2)  
 ``` erlang
 1> c(afile_server).
 {ok,afile_server}
