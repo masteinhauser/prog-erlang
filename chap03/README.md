@@ -11,7 +11,7 @@
   - C-f - move the cursor right one character.  
   - Tab - Tries to expand current module or function name  
 
-1. Use `help()` in the shell  
+1. Use `help()` in the shell
 ``` erlang
 1> help().
 ** shell internal commands **
@@ -64,79 +64,81 @@ ih()       -- print help for the i module
 ```
 
 1. Working with tuples  
-  1. Represent a house  
-  ``` erlang
-1> House = {house, {address, {street, 12345 Powdermill Rd}, {city, Framingham}, {state, MA, Massachusetts}, {zip, 01702}}}.
-* 1: syntax error before: Powdermill
-1> House = {house, {address, {street, "12345 Powdermill Rd"}, {city, "Framingham"}, {state, "MA", "Massachusetts"}, {zip, "01702"}}}.
-{house,{address,{street,"12345 Powdermill Rd"},
-                {city,"Framingham"},
-                {state,"MA","Massachusetts"},
-                {zip,"01702"}}}
-2> {house, {address, {street, streetVal}, {city, cityVal}, {state, stateVal}, {zip, zipVal}}} = House.
-** exception error: no match of right hand side value {house,{address,{street,"12345 Powdermill Rd"},
-                                                                      {city,"Framingham"},
-                                                                      {state,"MA","Massachusetts"},
-                                                                      {zip,"01702"}}}
-3> {house, {address, {street, streetVal}, {city, cityVal}, {state, stateAbr, stateVal}, {zip, zipVal}}} = House.
-** exception error: no match of right hand side value {house,{address,{street,"12345 Powdermill Rd"},
-                                                                      {city,"Framingham"},
-                                                                      {state,"MA","Massachusetts"},
-                                                                      {zip,"01702"}}}
-4> {house, {address, {street, Street}, {city, City}, {state, StateAbr, State}, {zip, Zip}}} = House.            
-{house,{address,{street,"12345 Powdermill Rd"},
-                {city,"Framingham"},
-                {state,"MA","Massachusetts"},
-                {zip,"01702"}}}
-  ```
-  1. Represent a street of houses  
-  ``` erlang
-1> House = {house, {address, {street, "12345 Powdermill Rd"}, {city, "Framingham"}, {state, "MA", "Massachusetts"}, {zip, "01702"}}}.
-{house,{address,{street,"12345 Powdermill Rd"},
-                {city,"Framingham"},
-                {state,"MA","Massachusetts"},
-                {zip,"01702"}}}
-2> Relatives = {house, {address, {street, "11555 Wisconsin Ave N"}, {city, "Minneapolis"}, {state, "MN", "Minnesota"}, {zip, "55316"}}}.
-{house,{address,{street,"11555 Wisconsin Ave N"},
-                {city,"Minneapolis"},
-                {state,"MN","Minnesota"},
-                {zip,"55316"}}}
-3> StreetOfHomes = {street, [House, Relatives]}.
-{street,[{house,{address,{street,"12345 Powdermill Rd"},
-                         {city,"Framingham"},
-                         {state,"MA","Massachusetts"},
-                         {zip,"01702"}}},
-         {house,{address,{street,"11555 Wisconsin Ave N"},
-                         {city,"Minneapolis"},
-                         {state,"MN","Minnesota"},
-                         {zip,"55316"}}}]}
-4> [HouseHead|T] = StreetOfHomes.
-** exception error: no match of right hand side value {street,[{house,{address,{street,"12345 Powdermill Rd"},
-                                                                               {city,"Framingham"},
-                                                                               {state,"MA","Massachusetts"},
-                                                                               {zip,"01702"}}},
-                                                               {house,{address,{street,"11555 Wisconsin Ave N"},
-                                                                               {city,"Minneapolis"},
-                                                                               {state,"MN","Minnesota"},
-                                                                               {zip,"55316"}}}]}
-5> {street, [HouseHead|T]} = StreetOfHomes.
-{street,[{house,{address,{street,"12345 Powdermill Rd"},
-                         {city,"Framingham"},
-                         {state,"MA","Massachusetts"},
-                         {zip,"01702"}}},
-         {house,{address,{street,"11555 Wisconsin Ave N"},
-                         {city,"Minneapolis"},
-                         {state,"MN","Minnesota"},
-                         {zip,"55316"}}}]}
-6> HouseHead.
-{house,{address,{street,"12345 Powdermill Rd"},
-                {city,"Framingham"},
-                {state,"MA","Massachusetts"},
-                {zip,"01702"}}}
-7> T.       
-[{house,{address,{street,"11555 Wisconsin Ave N"},
-                 {city,"Minneapolis"},
-                 {state,"MN","Minnesota"},
-                 {zip,"55316"}}}]
+  1. Represent a house
 
-  ```
+        ``` erlang
+        1> House = {house, {address, {street, 12345 Powdermill Rd}, {city, Framingham}, {state, MA, Massachusetts}, {zip, 01702}}}.
+        * 1: syntax error before: Powdermill
+        1> House = {house, {address, {street, "12345 Powdermill Rd"}, {city, "Framingham"}, {state, "MA", "Massachusetts"}, {zip, "01702"}}}.
+        {house,{address,{street,"12345 Powdermill Rd"},
+                        {city,"Framingham"},
+                        {state,"MA","Massachusetts"},
+                        {zip,"01702"}}}
+        2> {house, {address, {street, streetVal}, {city, cityVal}, {state, stateVal}, {zip, zipVal}}} = House.
+        ** exception error: no match of right hand side value {house,{address,{street,"12345 Powdermill Rd"},
+                                                                              {city,"Framingham"},
+                                                                              {state,"MA","Massachusetts"},
+                                                                              {zip,"01702"}}}
+        3> {house, {address, {street, streetVal}, {city, cityVal}, {state, stateAbr, stateVal}, {zip, zipVal}}} = House.
+        ** exception error: no match of right hand side value {house,{address,{street,"12345 Powdermill Rd"},
+                                                                              {city,"Framingham"},
+                                                                              {state,"MA","Massachusetts"},
+                                                                              {zip,"01702"}}}
+        4> {house, {address, {street, Street}, {city, City}, {state, StateAbr, State}, {zip, Zip}}} = House.            
+        {house,{address,{street,"12345 Powdermill Rd"},
+                        {city,"Framingham"},
+                        {state,"MA","Massachusetts"},
+                        {zip,"01702"}}}
+        ```
+
+  1. Represent a street of houses
+    
+        ``` erlang
+        1> House = {house, {address, {street, "12345 Powdermill Rd"}, {city, "Framingham"}, {state, "MA", "Massachusetts"}, {zip, "01702"}}}.
+        {house,{address,{street,"12345 Powdermill Rd"},
+                        {city,"Framingham"},
+                        {state,"MA","Massachusetts"},
+                        {zip,"01702"}}}
+        2> Relatives = {house, {address, {street, "11555 Wisconsin Ave N"}, {city, "Minneapolis"}, {state, "MN", "Minnesota"}, {zip, "55316"}}}.
+        {house,{address,{street,"11555 Wisconsin Ave N"},
+                        {city,"Minneapolis"},
+                        {state,"MN","Minnesota"},
+                        {zip,"55316"}}}
+        3> StreetOfHomes = {street, [House, Relatives]}.
+        {street,[{house,{address,{street,"12345 Powdermill Rd"},
+                                 {city,"Framingham"},
+                                 {state,"MA","Massachusetts"},
+                                 {zip,"01702"}}},
+                 {house,{address,{street,"11555 Wisconsin Ave N"},
+                                 {city,"Minneapolis"},
+                                 {state,"MN","Minnesota"},
+                                 {zip,"55316"}}}]}
+        4> [HouseHead|T] = StreetOfHomes.
+        ** exception error: no match of right hand side value {street,[{house,{address,{street,"12345 Powdermill Rd"},
+                                                                                       {city,"Framingham"},
+                                                                                       {state,"MA","Massachusetts"},
+                                                                                       {zip,"01702"}}},
+                                                                       {house,{address,{street,"11555 Wisconsin Ave N"},
+                                                                                       {city,"Minneapolis"},
+                                                                                       {state,"MN","Minnesota"},
+                                                                                       {zip,"55316"}}}]}
+        5> {street, [HouseHead|T]} = StreetOfHomes.
+        {street,[{house,{address,{street,"12345 Powdermill Rd"},
+                                 {city,"Framingham"},
+                                 {state,"MA","Massachusetts"},
+                                 {zip,"01702"}}},
+                 {house,{address,{street,"11555 Wisconsin Ave N"},
+                                 {city,"Minneapolis"},
+                                 {state,"MN","Minnesota"},
+                                 {zip,"55316"}}}]}
+        6> HouseHead.
+        {house,{address,{street,"12345 Powdermill Rd"},
+                        {city,"Framingham"},
+                        {state,"MA","Massachusetts"},
+                        {zip,"01702"}}}
+        7> T.       
+        [{house,{address,{street,"11555 Wisconsin Ave N"},
+                         {city,"Minneapolis"},
+                         {state,"MN","Minnesota"},
+                         {zip,"55316"}}}]
+        ```
