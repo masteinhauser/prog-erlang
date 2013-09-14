@@ -1,16 +1,27 @@
 # Exercises
 
 1. Start and Stop the Erlang Shell  
-Start: `erl`  
-Stop: `Ctrl + C, a, <enter>`  
+Start: `$ erl`  
+Stop: `1> [Ctrl] + [c], [a], [<enter>]`  
 
 1. Type in a few commands in the shell  
-`123 * 456.`  
-`X = 123. X * 456.`  
+``` erlang
+1> 123 * 456.
+56088
+2> X = 123. X * 456.
+123
+3> X * 456.
+56088
+```
 
 1. Compile and run `hello.erl` in Erlang Shell  
-`c(hello).`  
-`hello:start().`  
+``` erlang
+1> c(hello).
+{ok,hello}
+2> hello:start().
+Hello World
+ok
+```
 
 1. Run the file client and server code  
 **Note**: See modified `afile_server`, `afile_client` code  
@@ -36,5 +47,4 @@ ok
      "test","hello.erl","hello.beam"]}
 8> afile_client:get_file(Server, "test").
 {ok,<<"it works!">>}
-
 ```
