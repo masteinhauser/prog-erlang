@@ -11,7 +11,7 @@
   - C-f - move the cursor right one character.  
   - Tab - Tries to expand current module or function name  
 
-1. Use `help()` in the shell  
+1. Use `help()` in the shell
 ``` erlang
 1> help().
 ** shell internal commands **
@@ -64,8 +64,9 @@ ih()       -- print help for the i module
 ```
 
 1. Working with tuples  
-  1. Represent a house  
-  ``` erlang
+  1. Represent a house
+
+    ``` erlang
 1> House = {house, {address, {street, 12345 Powdermill Rd}, {city, Framingham}, {state, MA, Massachusetts}, {zip, 01702}}}.
 * 1: syntax error before: Powdermill
 1> House = {house, {address, {street, "12345 Powdermill Rd"}, {city, "Framingham"}, {state, "MA", "Massachusetts"}, {zip, "01702"}}}.
@@ -88,9 +89,10 @@ ih()       -- print help for the i module
                 {city,"Framingham"},
                 {state,"MA","Massachusetts"},
                 {zip,"01702"}}}
-  ```
-  1. Represent a street of houses  
-  ``` erlang
+    ```
+  1. Represent a street of houses
+
+    ``` erlang
 1> House = {house, {address, {street, "12345 Powdermill Rd"}, {city, "Framingham"}, {state, "MA", "Massachusetts"}, {zip, "01702"}}}.
 {house,{address,{street,"12345 Powdermill Rd"},
                 {city,"Framingham"},
@@ -139,4 +141,4 @@ ih()       -- print help for the i module
                  {state,"MN","Minnesota"},
                  {zip,"55316"}}}]
 
-  ```
+    ```
